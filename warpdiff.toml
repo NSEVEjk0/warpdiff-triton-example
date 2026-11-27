@@ -1,0 +1,12 @@
+default = "swiglu"
+
+[benchmarks.swiglu]
+name = "Triton SwiGLU"
+kernel = "kernels/swiglu.py"
+adapter = "benchmarks/swiglu.py"
+gpus = ["RTX 3090"]
+margin_pct = 5
+cases = [
+  { id = "tail", label = "65,537 elements", size = 65537 },
+  { id = "large", label = "4,194,304 elements", size = 4194304 },
+]

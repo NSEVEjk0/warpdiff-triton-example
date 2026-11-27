@@ -1,0 +1,33 @@
+name: GPU benchmark
+on:
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: Pull request number
+        type: number
+        required: true
+      benchmark:
+        description: Benchmark in warpdiff.toml
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+  pull-requests: read
+  checks: write
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: NSEVEjk0/warpdiff@v0.2.0
+        with:
+          pull_request: ${{ inputs.pull_request }}
+          max_hourly: '0.45'
+          benchmark: ${{ inputs.benchmark }}
+          vast_api_key: ${{ secrets.VASTAI_API_KEY }}
