@@ -25,7 +25,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: NSEVEjk0/warpdiff@v0.2.0
+      - uses: NSEVEjk0/warpdiff@v0.2.1
         with:
           pull_request: ${{ inputs.pull_request }}
           max_hourly: '0.45'
