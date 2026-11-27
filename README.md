@@ -1,6 +1,6 @@
 # WarpDiff Triton example
 
-This repo uses the public WarpDiff GitHub Action to test a Triton SwiGLU change on a Vast.ai RTX 3090. The benchmark checks `silu(gate) * value` against PyTorch and times the original and patched kernels.
+This repo uses the public WarpDiff GitHub Action to test a Triton SwiGLU change on a Vast.ai RTX 3090. The benchmark checks `silu(gate) * value` against PyTorch and times the original and patched kernels. [Passing check](https://github.com/NSEVEjk0/warpdiff-triton-example/runs/140704413666) · [Report and raw timings](https://warpdiff.vercel.app/?benchmark=swiglu)
 
 - [Benchmark definition](warpdiff.toml)
 - [PyTorch reference and timing adapter](benchmarks/swiglu.py)
